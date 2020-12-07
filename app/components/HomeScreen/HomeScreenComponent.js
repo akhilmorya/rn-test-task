@@ -29,10 +29,15 @@ export default function HomeScreenComponent({props}) {
       setTurn(true);
       if (leftSticks === 1) {
         showOkAlert('Sorry, You lost the game', 'Result', () => {
+          const resultData = {
+            userName: props.user.userName,
+            picked: userPickedCount + num
+          }
+          props.addToResult(resultData)
           props.navigation.navigate('ResultScreen');
         });
       }
-    }, 2000);
+    }, 1000);
   };
 
   const selectionHandler = new SelectionHandler({

@@ -3,6 +3,7 @@ import * as CONST from '../utils/Constants';
 const initialState = {
   user: null,
   message: '',
+  gameResult: []
 };
 
 export default function userReducer(state = initialState, action) {
@@ -52,6 +53,12 @@ export default function userReducer(state = initialState, action) {
         message: CONST.GET_USER_FAILURE,
         user: null,
       };
+    case CONST.ADD_RESULTS:
+      const result = state.gameResult.concat([action.data]);
+      return {
+        ...state,
+        gameResult: result
+      }
     default:
       return state;
   }

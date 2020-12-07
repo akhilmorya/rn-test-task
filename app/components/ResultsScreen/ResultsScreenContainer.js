@@ -6,7 +6,10 @@ const ResultsScreenContainer = props => {
   return <ResultsScreenComponent props={props} />;
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  gameResult: state.userReducer.gameResult,
+  user: state.userReducer.user,
+});
 
 const mapDispatchToProps = dispatch => ({});
 

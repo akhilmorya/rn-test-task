@@ -81,7 +81,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    height: height + 50,
+    height: height,
     width: width,
   },
 });

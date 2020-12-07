@@ -62,3 +62,10 @@ export function userFaliure(data) {
     data,
   };
 }
+
+export function addToResult(data) {
+  return {
+    type: CONST.ADD_RESULTS,
+    data,
+  };
+}
