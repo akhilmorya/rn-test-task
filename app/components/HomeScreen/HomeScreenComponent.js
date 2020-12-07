@@ -41,12 +41,14 @@ export default function HomeScreenComponent({props}) {
   });
 
   const onPickButtonPress = () => {
-    if (remainingSticks === 1 && isUserTurn) {
-      showOkAlert('Sorry, You lost the game', 'Result', () => {
-        props.navigation.navigate('ResultScreen');
-      });
-    } else {
-      pickStick(selectedButton);
+    if (isUserTurn) {
+      if (remainingSticks === 1 && isUserTurn) {
+        showOkAlert('Sorry, You lost the game', 'Result', () => {
+          props.navigation.navigate('ResultScreen');
+        });
+      } else {
+        pickStick(selectedButton);
+      }
     }
   };
 

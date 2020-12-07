@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     paddingLeft: scale(10),
     borderBottomColor: '#FFF',
     borderBottomWidth: scale(1),
-    color: '#FFF'
+    color: '#FFF',
   },
 });
 

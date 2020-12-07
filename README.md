@@ -1,16 +1,53 @@
 # RN Test Task
 
-### Please run the following commands to setup the project:
+## How to use
 
-$ git clone https://github.com/akhilmorya/rn-test-task.git
-$ cd RnTestask
-$ yarn
-$ cd ios
-$ pod install
-$ cd ..
-$ react-native run-android (android) or react-native run-ios (ios)
+**Step 1:**
 
-### You can also run the project as following
-Run project from iOS and android editors
+Download or clone this repo by using the link below:
 
-### Note: Incase pod install doesn't work then please delete Podfile.lock from ios folder and then try again pod install
+```
+git clone https://github.com/akhilmorya/rn-test-task.git
+```
+
+**Step 2:**
+
+Go to project root and execute the following command in console to get the required dependencies: 
+
+```
+npm install 
+```
+
+**Step 3:**
+
+**For iOS only:**
+
+```
+cd ios && pod install
+```
+
+**Step 4:**
+
+To run the app on device or simulator, execute the following command.
+
+For android:
+```
+react-native run-android
+```
+
+For iOS:
+```
+react-native run-ios
+```
+
+## Commit & push ``
+
+husky added in the package, To push the code on the repo you need execute the following command.
+
+```
+yarn validate
+eslint --fix .
+```
+
+## Note
+Incase pod install doesn't work then please delete Podfile.lock from ios folder and then try again pod install
