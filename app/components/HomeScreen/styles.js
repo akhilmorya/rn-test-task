@@ -4,7 +4,6 @@ import scale, {width, height} from '../../utils/Scale';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: scale(30),
   },
   usersContainer: {
     marginTop: 30,

@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import ApplicationStyles from '../../theme/ApplicationStyles';
 import scale from '../../utils/Scale';
 
 export default StyleSheet.create({

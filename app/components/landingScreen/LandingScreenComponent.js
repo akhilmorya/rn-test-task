@@ -45,7 +45,7 @@ export default class LandingScreenComponent extends React.Component {
       const data = {
         email: email,
         password: password,
-        userName: Utility.getUserName(email)
+        userName: Utility.getUserName(email),
       };
       this.props.login(data);
     }

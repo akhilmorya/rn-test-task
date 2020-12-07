@@ -1,13 +1,12 @@
 import {StyleSheet} from 'react-native';
-import ApplicationStyles from '../../theme/ApplicationStyles';
 import scale from '../../utils/Scale';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: scale(30),
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: scale(40),
   },
   playAgainButton: {
     marginTop: 50,
@@ -20,6 +19,10 @@ export default StyleSheet.create({
   },
   playAgainText: {
     fontSize: 16,
-    color: '#FFF'
-  }
+    color: '#FFF',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 });

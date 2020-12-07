@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Image, ActivityIndicator} from 'react-native';
+import {View, Image, ActivityIndicator, SafeAreaView} from 'react-native';
 import SelectionGroup, {SelectionHandler} from 'react-native-selection-group';
 import Container from '../../templates/container';
 import DPLabel from '../../atom/label';
@@ -197,15 +197,14 @@ export default function HomeScreenComponent({props}) {
 
   const renderBody = () => {
     return (
-      <View style={styles.container}>
-        {renderHeader()}
+      <SafeAreaView style={styles.container}>
         {renderUsersView()}
         {renderTurnView()}
         {renderSelectionButtons()}
         {renderLoader()}
-      </View>
+      </SafeAreaView>
     );
   };
 
-  return <Container body={renderBody()} />;
+  return <Container header={renderHeader()} body={renderBody()} />;
 }
