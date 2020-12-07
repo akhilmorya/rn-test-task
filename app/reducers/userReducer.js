@@ -5,11 +5,12 @@ const initialState = {
   message: '',
 };
 
-export function user(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case CONST.LOGIN_START:
       return {
         ...state,
+        user: action.data,
         message: CONST.LOGIN_START,
       };
     case CONST.LOGIN_SUCCESS:
@@ -55,7 +56,3 @@ export function user(state = initialState, action) {
       return state;
   }
 }
-
-export default {
-  user,
-};

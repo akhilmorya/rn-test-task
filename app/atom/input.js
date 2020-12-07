@@ -10,7 +10,7 @@ const DPInput = ({
 }) => {
   return (
     <TextInput
-      placeholderTextColor={'grey'}
+      placeholderTextColor={'white'}
       clearButtonMode={clearButtonMode}
       maxLength={50}
       autoCapitalize={'none'}
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     paddingLeft: scale(10),
     borderBottomColor: '#FFF',
     borderBottomWidth: scale(1),
+    color: '#FFF'
   },
 });
 
