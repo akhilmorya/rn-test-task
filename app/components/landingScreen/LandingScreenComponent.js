@@ -35,6 +35,11 @@ export default class LandingScreenComponent extends React.Component {
         passWordEmpty: true,
         passwordErr: 'Please enter the password',
       });
+    } else if (password != '1234') {
+      this.setState({
+        passWordEmpty: true,
+        passwordErr: 'Please enter the correct password',
+      });
     } else {
       this.setState({
         emailEmpty: false,

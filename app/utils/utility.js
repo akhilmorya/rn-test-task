@@ -25,7 +25,7 @@ export default class Utility {
   }
 
   static getUserName(email) {
-    if (email === 'admin1234') {
+    if (email === 'admin') {
       return 'Admin User';
     } else {
       return 'Guest User';

@@ -50,8 +50,7 @@ eslint --fix .
 ```
 ## Test Login credentials ``
 ```
-email/password - admin1234/1234
-email/password - guest1234/1234
+email/password - admin/1234 or guest/1234
 ```
 
 ## Note

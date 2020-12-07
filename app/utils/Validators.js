@@ -2,7 +2,7 @@ import {Platform} from 'react-native';
 
 class Validators {
   static validEmail(email) {
-    if (email === 'admin1234' || email === 'guest1234') {
+    if (email === 'admin' || email === 'guest') {
       return false;
     } else {
       return true;
