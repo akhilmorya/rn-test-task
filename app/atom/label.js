@@ -45,7 +45,7 @@ const DPLabel = ({
 };
 
 const styles = StyleSheet.create({
-  textStyle: {paddingLeft: scale(10)},
+  textStyle: {paddingLeft: scale(0)},
 });
 
 export default DPLabel;

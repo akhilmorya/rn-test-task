@@ -6,7 +6,9 @@ const HomeScreenContainer = props => {
   return <HomeScreenComponent props={props} />;
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  user: state.userReducer.user,
+});
 
 const mapDispatchToProps = dispatch => ({});
 

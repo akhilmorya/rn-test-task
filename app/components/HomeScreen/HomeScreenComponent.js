@@ -69,11 +69,11 @@ export default function HomeScreenComponent({props}) {
       <View style={styles.userView}>
         <Image
           style={[styles.profileImage, {tintColor: color}]}
-          source={require('../../../assets/images/user.png')}
+          source={Images.user}
         />
         <View style={styles.top}>
           {DPLabel({
-            title: 'User Name',
+            title: props.user.userName,
             textType: 'fullCapital',
             alignment: 'center',
             size: 14,
@@ -97,7 +97,7 @@ export default function HomeScreenComponent({props}) {
       <View style={styles.userView}>
         <Image
           style={[styles.profileImage, {tintColor: color}]}
-          source={require('../../../assets/images/robot.png')}
+          source={Images.bot}
         />
         <View style={styles.top}>
           {DPLabel({
