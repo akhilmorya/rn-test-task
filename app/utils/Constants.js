@@ -41,20 +41,6 @@ export const fontWeight = {
   Black: '900',
 };
 
-// Font Family constants 'TODO custom fonts needs to install'
-export const fontFamily = {
-  Regular: 'Raleway-Regular',
-  Medium: 'Raleway-Medium',
-  SemiBold: 'Raleway-SemiBold',
-  Light: 'Raleway-Light',
-  Bold: 'Raleway-Bold',
-  MediumItalic: 'Raleway-MediumItalic',
-  RegularItalic: 'Raleway-Italic',
-  Black: 'Raleway-Black',
-  Josef: 'JosefinSans-Regular',
-  JosefBold: 'JosefinSans-Bold',
-};
-
 // CONFIGURATIONS
 export const API_TIMEOUT = 30000;
 
@@ -71,20 +57,21 @@ export const START_UP = 'START_UP';
 /**
  * @Brands Constants
  */
-export const GET_ALL_BRANDS = 'GET_ALL_BRANDS';
-export const GET_ALL_BRANDS_SUCCESS = 'GET_ALL_BRANDS_SUCCESS';
-export const GET_ALL_BRANDS_FAILURE = 'GET_ALL_BRANDS_FAILURE';
 
-// Messages
-export const MSG_TITLE = 'Any Message Title';
+export const START_SPINNER = 'START_SPINNER';
+export const STOP_SPINNER = 'STOP_SPINNER';
 
-// image constants 'TODO specify correct assets path'
-// export const HOME_INACTIVE = require('@assets/');
-// export const HOME_ACTIVE = require('@assets/');
+export const LOGIN_START = 'LOGIN_START';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
-// Screen uri constants
-export const BONUS_URI = 'https://www.xyz.com/app/bonus/';
-export const FAQS_URI = 'https://www.xyz.com/app/faq/';
+export const LOGOUT = 'LOGOUT';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
+
+export const GET_USER = 'GET_USER';
+export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
+export const GET_USER_FAILURE = 'GET_USER_FAILURE';
 
 // Style Constants
 export const POSITION_ABSOLUTE = 'absolute';
