@@ -1,3 +1,4 @@
 export default {
-  logo: require('../../assets/images/logo_systango.png'),
+  user: require('../../assets/images/user.png'),
+  bot: require('../../assets/images/robot.png')
 };

@@ -21,4 +21,31 @@ export default class Utility {
     }
     return string;
   }
+
+  static getUserName(email) {
+    if(email === 'admin1234') return 'Admin User';
+    else return 'Guest User'
+  }
+
+  static getButtonsOption() {
+    const buttonOptions = [
+      {
+        optionText: '1',
+        value: 1
+      },
+      {
+        optionText: '2',
+        value: 2
+      },
+      {
+        optionText: '3',
+        value: 3
+      },
+      {
+        optionText: '4',
+        value: 4
+      }
+    ];
+    return buttonOptions;
+  }
 }

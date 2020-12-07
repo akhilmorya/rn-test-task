@@ -5,6 +5,7 @@ import DPLabel from '../../atom/label';
 import DPButton from '../../atom/button';
 import DPInput from '../../atom/input';
 import Validators from '../../utils/Validators';
+import Utility from '../../utils/utility';
 import styles from './styles';
 
 export default class LandingScreenComponent extends React.Component {
@@ -44,6 +45,7 @@ export default class LandingScreenComponent extends React.Component {
       const data = {
         email: email,
         password: password,
+        userName: Utility.getUserName(email)
       };
       this.props.login(data);
     }

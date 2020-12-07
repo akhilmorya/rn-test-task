@@ -2,29 +2,13 @@ import React, { useState } from 'react';
 import {ScrollView, View, Text, Dimensions, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import SelectionGroup, { SelectionHandler } from 'react-native-selection-group';
 import showOkAlert from '../../utils/ShowAlert'
+import Utility from '../../utils/utility';
+import * as Images from '../../theme/Images';
 import styles from './styles';
 
 export default function HomeScreenComponent({props}) {
   const DEVICE_WIDTH = Dimensions.get('window').width;
   const DEVICE_HEIGHT = Dimensions.get('window').height;
-  const buttonOptions = [
-    {
-      optionText: '1',
-      value: 1
-    },
-    {
-      optionText: '2',
-      value: 2
-    },
-    {
-      optionText: '3',
-      value: 3
-    },
-    {
-      optionText: '4',
-      value: 4
-    }
-  ];
   const [isUserTurn, setTurn] = useState(true);
   const [userPickedCount, setUserPickCount] = useState(0);
   const [botPickedCount, setBOTPickCount] = useState(0);
@@ -129,7 +113,7 @@ export default function HomeScreenComponent({props}) {
       <View style={styles.buttonsContainer}>
         <SelectionGroup 
           renderContent={renderButton}
-          items={buttonOptions}
+          items={Utility.getButtonsOption()}
           onPress={selectionHandler.selectionHandler}
           isSelected={selectionHandler.isSelected}
           containerStyle={{ alignSelf: 'center', flexDirection: 'row' }}
