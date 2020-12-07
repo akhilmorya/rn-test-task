@@ -8,23 +8,9 @@ const DPButton = ({
   onPress,
   btnStyle,
   style = {},
-  type = 'big',
   buttonColor = '#000',
   ...props
 }) => {
-  switch (type) {
-    case 'small':
-      buttonColor = '#000';
-      break;
-    case 'medium':
-      buttonColor = 'green';
-      break;
-    case 'big':
-      buttonColor = '#000';
-      break;
-    default:
-      break;
-  }
   return (
     <TouchableOpacity
       disabled={false}

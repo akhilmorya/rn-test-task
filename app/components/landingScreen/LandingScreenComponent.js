@@ -61,7 +61,7 @@ export default class LandingScreenComponent extends React.Component {
       passWordEmpty,
     } = this.state;
     return (
-      <View>
+      <View style={styles.container}>
         {DPLabel({
           title: 'MatchStick Game',
           textType: 'fullCapital',
@@ -115,7 +115,7 @@ export default class LandingScreenComponent extends React.Component {
           <View style={styles.signBtn}>
             {DPButton({
               title: 'Login',
-              type: 'medium',
+              buttonColor: 'green',
               onPress: () => this.login(),
             })}
           </View>

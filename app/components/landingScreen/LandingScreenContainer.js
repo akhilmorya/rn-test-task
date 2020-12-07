@@ -2,28 +2,25 @@ import React from 'react';
 import {connect} from 'react-redux';
 import LandingScreenComponent from './LandingScreenComponent';
 import * as userActions from '../../actions/user';
+import NavigationService from '../../services/NavigationService';
 
 class LandingScreenContainer extends React.Component {
-
   constructor(props) {
     super(props);
   }
 
-componentDidUpdate(prevProp) {
-  if(this.props.user && this.props.user !== prevProp.user) {
-    this.props.navigation.navigate('HomeScreen')
+  componentDidUpdate(prevProp) {
+    if (this.props.user && this.props.user !== prevProp.user) {
+      NavigationService.navigateAndReset('HomeScreen');
+    }
+  }
+
+  render() {
+    return <LandingScreenComponent {...this.props} />;
   }
 }
 
-render() {
-  return (
-    <LandingScreenComponent {...this.props} />
-  );
-}
-}
-
-const mapStateToProps = state => (
-  {
+const mapStateToProps = state => ({
   user: state.userReducer.user,
 });
 

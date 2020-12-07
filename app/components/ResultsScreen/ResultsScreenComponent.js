@@ -1,35 +1,41 @@
-import React, { useState } from 'react';
-import {ScrollView, View, Text, Dimensions, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
-import SelectionGroup, { SelectionHandler } from 'react-native-selection-group';
+import React from 'react';
+import {View} from 'react-native';
+import Container from '../../templates/container';
+import DPLabel from '../../atom/label';
+import DPButton from '../../atom/button';
 import styles from './styles';
 
 export default function ResultsScreenComponent({props}) {
-
   const onPlayAgainPress = () => {
-    props.navigation.replace('HomeScreen')
-  }
+    props.navigation.replace('HomeScreen');
+  };
 
   const renderHeaderView = () => {
-    return(
-      <Text>You Lost the game</Text>
-    );
-  }
+    return DPLabel({
+      title: 'You Lost the game',
+      textType: 'fullCapital',
+      alignment: 'center',
+      size: 20,
+    });
+  };
 
   const renderPlayAgain = () => {
-    return (
-      <TouchableOpacity style={styles.playAgainButton} onPress={() => onPlayAgainPress()}>
-        <Text style={styles.playAgainText}>Play Again</Text>
-      </TouchableOpacity>
-    )
-  }
+    return DPButton({
+      title: 'Play Again',
+      buttonColor: 'green',
+      onPress: () => onPlayAgainPress(),
+      btnStyle: styles.playAgainButton,
+    });
+  };
 
-  return (
-    <ScrollView contentContainerStyle={styles.container}>
+  const renderBody = () => {
+    return (
       <View style={styles.container}>
         {renderHeaderView()}
         {renderPlayAgain()}
       </View>
-    </ScrollView>
-  );
-}
+    );
+  };
 
+  return <Container body={renderBody()} />;
+}
