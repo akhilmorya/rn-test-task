@@ -8,9 +8,7 @@ class AsyncStorageUtil {
   }
 
   static async setAsyncStorage(key, value) {
-    await AsyncStorage.setItem(key, value).catch(err => {
-      console.log(`AsyncStorage error: ${err.message}`);
-    });
+    await AsyncStorage.setItem(key, value).catch(err => {});
   }
 
   static async removeAsyncstorage(key) {
