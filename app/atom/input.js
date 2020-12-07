@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
+import scale from '../utils/Scale';
 
 const DPInput = ({
   onChangeText,
@@ -27,8 +28,10 @@ const styles = StyleSheet.create({
   inputStyle: {
     flex: 1,
     textAlignVertical: 'top',
-    paddingTop: 5,
-    paddingLeft: 5,
+    paddingVertical: scale(10),
+    paddingLeft: scale(10),
+    borderBottomColor: '#FFF',
+    borderBottomWidth: scale(1),
   },
 });
 

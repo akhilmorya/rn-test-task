@@ -13,4 +13,4 @@ export default function scale(units = 1) {
 
 const verticalScale = size => (height / CONST.SCREEN_HEIGHT) * size;
 
-export {verticalScale};
+export {verticalScale, height, width};

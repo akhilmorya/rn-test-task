@@ -1,10 +1,12 @@
 import React from 'react';
 import Utility from '../utils/utility';
 import {StyleSheet, Text} from 'react-native';
+import scale from '../utils/Scale';
 
 const DPLabel = ({
   title,
   style = {},
+  size = scale(20),
   textType = 'normal',
   alignment = 'left',
   maxLength = 40,
@@ -18,14 +20,14 @@ const DPLabel = ({
       numberOfLines={numberOfLines}
       ellipsizeMode={ellipsizeMode}
       {...props}
-      style={[style, styles.textStyle, {textAlign: alignment}]}>
+      style={[style, styles.textStyle, {textAlign: alignment, fontSize: size}]}>
       {Utility.changeStringStyle(title, textType)}
     </Text>
   );
 };
 
 const styles = StyleSheet.create({
-  textStyle: {left: 2.5, top: 0, color: '#000'},
+  textStyle: {paddingLeft: scale(10), color: '#FFF'},
 });
 
 export default DPLabel;
