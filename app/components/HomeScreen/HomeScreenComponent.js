@@ -198,6 +198,7 @@ export default function HomeScreenComponent({props}) {
   const renderBody = () => {
     return (
       <SafeAreaView style={styles.container}>
+        {renderHeader()}
         {renderUsersView()}
         {renderTurnView()}
         {renderSelectionButtons()}
@@ -206,5 +207,5 @@ export default function HomeScreenComponent({props}) {
     );
   };
 
-  return <Container header={renderHeader()} body={renderBody()} />;
+  return <Container body={renderBody()} />;
 }
