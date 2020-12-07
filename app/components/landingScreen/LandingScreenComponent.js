@@ -24,7 +24,7 @@ export default class LandingScreenComponent extends React.Component {
         emailEmpty: true,
         emailErr: 'Please enter your email address',
       });
-    } else if (email != 'admin1234') {
+    } else if (Validators.validEmail(email)) {
       this.setState({
         emailEmpty: true,
         emailErr: 'Please the valid email address',

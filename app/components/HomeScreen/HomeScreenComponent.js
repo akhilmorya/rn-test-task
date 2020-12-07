@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import {ScrollView, View, Text, Dimensions, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import SelectionGroup, { SelectionHandler } from 'react-native-selection-group';
+import showOkAlert from '../../utils/ShowAlert'
 import styles from './styles';
 
-export default function HomeScreenComponent() {
+export default function HomeScreenComponent({props}) {
   const DEVICE_WIDTH = Dimensions.get('window').width;
   const DEVICE_HEIGHT = Dimensions.get('window').height;
   const buttonOptions = [
@@ -25,8 +26,8 @@ export default function HomeScreenComponent() {
     }
   ];
   const [isUserTurn, setTurn] = useState(true);
-  const[userPickedCount, setUserPickCount] = useState(0);
-  const[botPickedCount, setBOTPickCount] = useState(0);
+  const [userPickedCount, setUserPickCount] = useState(0);
+  const [botPickedCount, setBOTPickCount] = useState(0);
   const [selectedButton, setSelection] = useState(1);
   const [remainingSticks, setRemainingSticks] = useState(21);
 
@@ -42,7 +43,7 @@ export default function HomeScreenComponent() {
       setBOTPickCount(botPickedCount + botPick);
       setTurn(true)
       if(leftSticks === 1) {
-        alert('Sorry, You lost the game')
+        showOkAlert('Sorry, You lost the game', 'Result', () => {props.navigation.navigate('ResultScreen')})
       }
     }, 2000);
   }
@@ -51,7 +52,7 @@ export default function HomeScreenComponent() {
 
   onPickButtonPress = () => {
     if(remainingSticks === 1 && isUserTurn) {
-      alert('Sorry, You lost the game')
+      showOkAlert('Sorry, You lost the game', 'Result', () => {props.navigation.navigate('ResultScreen')})
     } else {
       pickStick(selectedButton);
     }
