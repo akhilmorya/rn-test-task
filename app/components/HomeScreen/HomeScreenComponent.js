@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
-import {ScrollView, View, Text, Dimensions, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
-import SelectionGroup, { SelectionHandler } from 'react-native-selection-group';
-import showOkAlert from '../../utils/ShowAlert'
+import React, {useState} from 'react';
+import {View, Image, ActivityIndicator} from 'react-native';
+import SelectionGroup, {SelectionHandler} from 'react-native-selection-group';
+import Container from '../../templates/container';
+import DPLabel from '../../atom/label';
+import DPButton from '../../atom/button';
 import styles from './styles';
+import showOkAlert from '../../utils/ShowAlert';
 
 export default function HomeScreenComponent({props}) {
-  const DEVICE_WIDTH = Dimensions.get('window').width;
-  const DEVICE_HEIGHT = Dimensions.get('window').height;
   const buttonOptions = [
     {
       optionText: '1',
-      value: 1
+      value: 1,
     },
     {
       optionText: '2',
-      value: 2
+      value: 2,
     },
     {
       optionText: '3',
-      value: 3
+      value: 3,
     },
     {
       optionText: '4',
-      value: 4
-    }
+      value: 4,
+    },
   ];
   const [isUserTurn, setTurn] = useState(true);
   const [userPickedCount, setUserPickCount] = useState(0);
@@ -31,7 +32,7 @@ export default function HomeScreenComponent({props}) {
   const [selectedButton, setSelection] = useState(1);
   const [remainingSticks, setRemainingSticks] = useState(21);
 
-  const pickStick = (num) => {
+  const pickStick = num => {
     setUserPickCount(userPickedCount + num);
     setTurn(false);
     let leftSticks = remainingSticks - num;
@@ -41,118 +42,177 @@ export default function HomeScreenComponent({props}) {
       leftSticks = leftSticks - botPick;
       setRemainingSticks(leftSticks);
       setBOTPickCount(botPickedCount + botPick);
-      setTurn(true)
-      if(leftSticks === 1) {
-        showOkAlert('Sorry, You lost the game', 'Result', () => {props.navigation.navigate('ResultScreen')})
+      setTurn(true);
+      if (leftSticks === 1) {
+        showOkAlert('Sorry, You lost the game', 'Result', () => {
+          props.navigation.navigate('ResultScreen');
+        });
       }
     }, 2000);
-  }
+  };
 
-  const selectionHandler = new SelectionHandler({ maxMultiSelect: 0, allowDeselect: false });
+  const selectionHandler = new SelectionHandler({
+    maxMultiSelect: 0,
+    allowDeselect: false,
+  });
 
-  onPickButtonPress = () => {
-    if(remainingSticks === 1 && isUserTurn) {
-      showOkAlert('Sorry, You lost the game', 'Result', () => {props.navigation.navigate('ResultScreen')})
+  const onPickButtonPress = () => {
+    if (remainingSticks === 1 && isUserTurn) {
+      showOkAlert('Sorry, You lost the game', 'Result', () => {
+        props.navigation.navigate('ResultScreen');
+      });
     } else {
       pickStick(selectedButton);
     }
-  }
+  };
 
-  renderHeader = () => {
+  const renderHeader = () => {
     return (
-      <View style={{ width: DEVICE_WIDTH, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={styles.headerTitle}>Board Game</Text>
+      <View style={styles.gameTitle}>
+        {DPLabel({
+          title: 'Board Game',
+          textType: 'fullCapital',
+          alignment: 'center',
+          size: 25,
+        })}
       </View>
     );
-  }
+  };
 
-  renderUserView = () => {
+  const renderUserView = () => {
     const color = isUserTurn ? 'rgba(78,142,255,1)' : 'gray';
-    return(
+    return (
       <View style={styles.userView}>
         <Image
-          style={[styles.profileImage, { tintColor: color }]}
+          style={[styles.profileImage, {tintColor: color}]}
           source={require('../../../assets/images/user.png')}
         />
-        <Text style={{ color: color, marginTop: 5 }}>User Name</Text>
-        <Text style={[styles.pickLabel, { color: color }]}>Picked : {userPickedCount}</Text>
+        <View style={styles.top}>
+          {DPLabel({
+            title: 'User Name',
+            textType: 'fullCapital',
+            alignment: 'center',
+            size: 14,
+            textColor: color,
+          })}
+        </View>
+        {DPLabel({
+          title: `Picked : ${userPickedCount}`,
+          textType: 'fullCapital',
+          alignment: 'center',
+          size: 14,
+          textColor: color,
+        })}
       </View>
     );
-  }
+  };
 
-  renderAIView = () => {
+  const renderAIView = () => {
     const color = !isUserTurn ? 'rgba(78,142,255,1)' : 'gray';
-    return(
+    return (
       <View style={styles.userView}>
         <Image
-          style={[styles.profileImage, { tintColor: color }]}
+          style={[styles.profileImage, {tintColor: color}]}
           source={require('../../../assets/images/robot.png')}
         />
-        <Text style={{ color: color, marginTop: 5 }}>BOT</Text>
-        <Text style={[styles.pickLabel, { color: color }]}>Picked : {botPickedCount}</Text>
+        <View style={styles.top}>
+          {DPLabel({
+            title: 'BOT',
+            textType: 'fullCapital',
+            alignment: 'center',
+            size: 14,
+            textColor: color,
+          })}
+        </View>
+        {DPLabel({
+          title: `Picked : ${botPickedCount}`,
+          textType: 'fullCapital',
+          alignment: 'center',
+          size: 14,
+          textColor: color,
+        })}
       </View>
     );
-  }
+  };
 
-  renderUsersView = () => {
-    return(
+  const renderUsersView = () => {
+    return (
       <View style={styles.usersContainer}>
         {renderUserView()}
         {renderAIView()}
       </View>
     );
-  }
+  };
 
-  renderTurnView = () => {
-    return(
-      <View>
-        <Text style={styles.turnLabel}>Available Sticks : {remainingSticks}</Text>
-        <Text style={styles.turnLabel}>{isUserTurn ? 'Your Turn' : 'Bot Turn '}</Text>
+  const renderTurnView = () => {
+    return (
+      <View style={styles.top}>
+        {DPLabel({
+          title: `Available Sticks : ${remainingSticks}`,
+          textType: 'fullCapital',
+          alignment: 'center',
+          size: 14,
+        })}
+        {DPLabel({
+          title: isUserTurn ? 'Your Turn' : 'Bot Turn ',
+          textType: 'fullCapital',
+          alignment: 'center',
+          size: 14,
+        })}
       </View>
     );
-  }
+  };
 
-  renderButton = (data, index, isSelected, onPress) => {
-    return (<TouchableOpacity
-      onPress={onPress}
-      key={index}
-      style={[styles.button, 
-        { backgroundColor: (selectedButton === data.value) || isSelected ? 'rgba(78,142,255,1)' : 'rgba(141,196,63,1)' }]}
-    >
-    <Text>{data.optionText}</Text>
-    </TouchableOpacity>
-    );
-  }
+  const renderButton = (data, index, isSelected, onPress) => {
+    return DPButton({
+      title: data.optionText,
+      onPress: onPress,
+      buttonColor:
+        selectedButton === data.value || isSelected
+          ? 'rgba(78,142,255,1)'
+          : 'rgba(141,196,63,1)',
+      btnStyle: styles.button,
+    });
+  };
 
-  renderSelectionButtons = () => {
-    return(
+  const renderSelectionButtons = () => {
+    return (
       <View style={styles.buttonsContainer}>
-        <SelectionGroup 
+        <SelectionGroup
           renderContent={renderButton}
           items={buttonOptions}
           onPress={selectionHandler.selectionHandler}
           isSelected={selectionHandler.isSelected}
-          containerStyle={{ alignSelf: 'center', flexDirection: 'row' }}
-          onItemSelected={(item) => setSelection(item.value)}
+          containerStyle={styles.row}
+          onItemSelected={item => setSelection(item.value)}
         />
-      <TouchableOpacity style={styles.pickButton} onPress={() => onPickButtonPress()}>
-        <Text style={styles.pickText}>Pick</Text>
-      </TouchableOpacity>
-    </View>
-    );
-  }
-
-  renderLoader = () => {
-    if(isUserTurn) return null;
-    return (
-      <View style={{ position: 'absolute', alignItems: 'center', justifyContent: 'center', flex: 1, height: DEVICE_HEIGHT + 50, width: DEVICE_WIDTH }}>
-        <ActivityIndicator size="large" color='rgba(78,142,255,1)' style={{ alignSelf: 'center' }} />
+        {DPButton({
+          title: 'Pick',
+          onPress: () => onPickButtonPress(),
+          buttonColor: 'rgba(78,142,255,1)',
+          btnStyle: styles.pickButton,
+        })}
       </View>
     );
-  }
+  };
 
-  return (
-    <ScrollView contentContainerStyle={styles.container}>
+  const renderLoader = () => {
+    if (isUserTurn) {
+      return null;
+    }
+    return (
+      <View style={styles.loader}>
+        <ActivityIndicator
+          size='large'
+          color='rgba(78,142,255,1)'
+          style={styles.center}
+        />
+      </View>
+    );
+  };
+
+  const renderBody = () => {
+    return (
       <View style={styles.container}>
         {renderHeader()}
         {renderUsersView()}
@@ -160,7 +220,8 @@ export default function HomeScreenComponent({props}) {
         {renderSelectionButtons()}
         {renderLoader()}
       </View>
-    </ScrollView>
-  );
-}
+    );
+  };
 
+  return <Container body={renderBody()} />;
+}
