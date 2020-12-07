@@ -13,8 +13,7 @@ const Container = ({
   ...props
 }) => {
   return (
-    <SafeAreaView style={[styles.container, style]}>
-      {header}
+    <SafeAreaView style={styles.container}>
       <Content>{body}</Content>
       <View style={[styles.footer, footerStyle]}>{footer}</View>
     </SafeAreaView>
@@ -24,7 +23,6 @@ const Container = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingTop: 20,
     backgroundColor: '#000',
   },
   footer: {

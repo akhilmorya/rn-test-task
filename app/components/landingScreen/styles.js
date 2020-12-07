@@ -4,7 +4,10 @@ import scale from '../../utils/Scale';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: scale(30),
+  },
+  content: {
+    flex: 1,
+    marginTop: scale(40),
   },
   password: {
     marginVertical: scale(15),

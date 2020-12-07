@@ -68,7 +68,7 @@ export default class LandingScreenComponent extends React.Component {
           alignment: 'center',
           size: 25,
         })}
-        <View style={styles.container}>
+        <View style={styles.content}>
           <View style={styles.email}>
             {DPLabel({
               title: 'Email',

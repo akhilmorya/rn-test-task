@@ -150,6 +150,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('rntesttask')
+            storePassword 'android'
+            keyAlias 'rntesttask'
+            keyPassword 'android'
+        }
     }
     buildTypes {
         debug {
