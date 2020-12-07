@@ -48,6 +48,11 @@ husky added in the package, To push the code on the repo you need execute the fo
 yarn validate
 eslint --fix .
 ```
+## Test Login credentials ``
+```
+email/password - admin1234/1234
+email/password - guest1234/1234
+```
 
 ## Note
 Incase pod install doesn't work then please delete Podfile.lock from ios folder and then try again pod install

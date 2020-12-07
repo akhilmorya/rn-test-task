@@ -20,24 +20,28 @@ export default function ResultsScreenComponent({props}) {
     });
   };
 
-  const renderItem = ({ item }) => {
-    if(item.userName === Utility.getUserName(props.user.email)) {
-      return(
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text style={{ color: '#FFF' }}>You Picked:  {item.picked}</Text>
-          <Text style={{ color: '#FFF' }}>Result : Lost</Text>
+  const renderItem = ({item}) => {
+    if (item.userName === Utility.getUserName(props.user.email)) {
+      return (
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <Text style={{color: '#FFF'}}>You Picked: {item.picked}</Text>
+          <Text style={{color: '#FFF'}}>Result : Lost</Text>
         </View>
       );
     } else {
-      return null
+      return null;
     }
-  }
+  };
 
   const renderHistory = () => {
-    if(props.gameResult && props.gameResult.length === 0) return null
-    return(
-      <View style={{ marginTop: 30, alignSelf: 'stretch', marginHorizontal: 40 }}>
-        <Text style={{ color: '#FFF', alignSelf: 'center', marginBottom: 20 }}>Game Results</Text>
+    if (props.gameResult && props.gameResult.length === 0) {
+      return null;
+    }
+    return (
+      <View style={{marginTop: 30, alignSelf: 'stretch', marginHorizontal: 40}}>
+        <Text style={{color: '#FFF', alignSelf: 'center', marginBottom: 20}}>
+          Game Results
+        </Text>
         <FlatList
           data={props.gameResult}
           renderItem={renderItem}
@@ -45,7 +49,7 @@ export default function ResultsScreenComponent({props}) {
         />
       </View>
     );
-  }
+  };
 
   const renderPlayAgain = () => {
     return DPButton({

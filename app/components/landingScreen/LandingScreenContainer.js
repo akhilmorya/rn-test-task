@@ -10,7 +10,7 @@ class LandingScreenContainer extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.user) {
+    if (this.props.user) {
       this.props.navigation.replace('HomeScreen'); // If already logged in
     }
   }

@@ -3,7 +3,7 @@ import * as CONST from '../utils/Constants';
 const initialState = {
   user: null,
   message: '',
-  gameResult: []
+  gameResult: [],
 };
 
 export default function userReducer(state = initialState, action) {
@@ -57,8 +57,8 @@ export default function userReducer(state = initialState, action) {
       const result = state.gameResult.concat([action.data]);
       return {
         ...state,
-        gameResult: result
-      }
+        gameResult: result,
+      };
     default:
       return state;
   }

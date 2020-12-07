@@ -31,9 +31,9 @@ export default function HomeScreenComponent({props}) {
         showOkAlert('Sorry, You lost the game', 'Result', () => {
           const resultData = {
             userName: props.user.userName,
-            picked: userPickedCount + num
-          }
-          props.addToResult(resultData)
+            picked: userPickedCount + num,
+          };
+          props.addToResult(resultData);
           props.navigation.navigate('ResultScreen');
         });
       }
